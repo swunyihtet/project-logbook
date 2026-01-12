@@ -1,4 +1,4 @@
-export type ProjectStatus = 'Production' | 'DR' | 'POC';
+export type ProjectStatus = 'Production' | 'UAT' | 'POC';
 
 export interface Project {
   id: string;
@@ -64,7 +64,7 @@ export const projects: Project[] = [
     id: 'disaster-recovery',
     title: 'Multi-Region Disaster Recovery Platform',
     year: 2024,
-    status: 'DR',
+    status: 'UAT',
     role: 'DR Architect & PM',
     techStack: ['AWS', 'Route 53', 'RDS Multi-AZ', 'S3 Cross-Region', 'CloudFormation', 'PagerDuty'],
     category: 'Infrastructure',
@@ -132,6 +132,6 @@ export const projects: Project[] = [
 ];
 
 export const years = [...new Set(projects.map(p => p.year))].sort((a, b) => b - a);
-export const statuses: ProjectStatus[] = ['Production', 'DR', 'POC'];
+export const statuses: ProjectStatus[] = ['Production', 'UAT', 'POC'];
 export const categories = [...new Set(projects.map(p => p.category))];
 export const techStacks = [...new Set(projects.flatMap(p => p.techStack))].sort();
