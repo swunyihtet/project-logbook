@@ -59,7 +59,7 @@ export default {
         },
         status: {
           production: "hsl(var(--status-production))",
-          dr: "hsl(var(--status-dr))",
+          uat: "hsl(var(--status-uat))",
           poc: "hsl(var(--status-poc))",
         },
         tech: {

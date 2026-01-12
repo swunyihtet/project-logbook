@@ -4,11 +4,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* Engineering-focused design system - slate tones, professional, minimal */
+/* Modern engineering-focused design system with glassmorphism */
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
+    --background: 220 20% 97%;
     --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
@@ -32,22 +32,30 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214 20% 90%;
+    --border: 214 20% 88%;
     --input: 214 20% 90%;
-    --ring: 215 25% 27%;
+    --ring: 199 89% 48%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Custom tokens for project cards */
+    /* Enhanced tokens for project cards */
     --status-production: 142 71% 45%;
-    --status-dr: 217 91% 60%;
+    --status-uat: 217 91% 60%;
     --status-poc: 38 92% 50%;
     
-    --tech-badge-bg: 214 20% 94%;
+    --tech-badge-bg: 214 25% 93%;
     --tech-badge-text: 215 25% 35%;
     
-    --card-shadow: 0 1px 3px 0 hsl(214 20% 50% / 0.08), 0 1px 2px -1px hsl(214 20% 50% / 0.08);
-    --card-shadow-hover: 0 4px 12px 0 hsl(214 20% 50% / 0.12), 0 2px 4px -2px hsl(214 20% 50% / 0.08);
+    /* Glassmorphism card styling */
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 100% / 0.5;
+    --glass-shadow: 0 8px 32px 0 hsl(214 20% 50% / 0.1);
+    --glass-shadow-hover: 0 16px 48px 0 hsl(214 20% 50% / 0.15), 0 8px 24px -8px hsl(199 89% 48% / 0.1);
+    
+    /* Glow effects */
+    --glow-production: 0 0 20px hsl(142 71% 45% / 0.4);
+    --glow-dr: 0 0 20px hsl(217 91% 60% / 0.4);
+    --glow-poc: 0 0 20px hsl(38 92% 50% / 0.4);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -63,10 +71,10 @@
     --background: 222 47% 6%;
     --foreground: 210 40% 96%;
 
-    --card: 222 47% 9%;
+    --card: 222 47% 11%;
     --card-foreground: 210 40% 96%;
 
-    --popover: 222 47% 9%;
+    --popover: 222 47% 11%;
     --popover-foreground: 210 40% 96%;
 
     --primary: 210 40% 96%;
@@ -84,15 +92,18 @@
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217 33% 17%;
+    --border: 217 33% 20%;
     --input: 217 33% 17%;
-    --ring: 212 27% 84%;
+    --ring: 199 89% 48%;
     
-    --tech-badge-bg: 217 33% 20%;
+    --tech-badge-bg: 217 33% 22%;
     --tech-badge-text: 210 40% 80%;
     
-    --card-shadow: 0 1px 3px 0 hsl(0 0% 0% / 0.3);
-    --card-shadow-hover: 0 4px 12px 0 hsl(0 0% 0% / 0.4);
+    /* Dark mode glassmorphism */
+    --glass-bg: 222 47% 11% / 0.6;
+    --glass-border: 217 33% 25% / 0.5;
+    --glass-shadow: 0 8px 32px 0 hsl(0 0% 0% / 0.3);
+    --glass-shadow-hover: 0 16px 48px 0 hsl(0 0% 0% / 0.4), 0 8px 24px -8px hsl(199 89% 48% / 0.15);
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -117,5 +128,22 @@
   
   code, .font-mono {
     font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--glass-border));
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
   }
 }
